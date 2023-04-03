@@ -11,27 +11,27 @@ Things I want to add:
 
 But isn't it better to always expect one type?
 
-    Let's say we're doing some selenium testing.
+Let's say we're doing some selenium testing.
 
     >>> driver = webdriver.Chrome()
 
-    Let's grab any input elements we can.
+Let's grab any input elements we can.
     
     >>> results = driver.find_elements(By.XPATH, '//input')
     
-    To filter them for display, we'll get their ids.
+To filter them for display, we'll get their ids.
     
     >>> choices = fzf.prompt([str(idx) + "\t" + element.get_attribute("id") for idx, element in enumerate(results)], '--multi')
     
-    And now we have the indices of the input elements we found. This works as long as we chose under 11 objects (0-9 == 10).
+And now we have the indices of the input elements we found. This works as long as we chose under 11 objects (0-9 == 10).
     
     >>> indices = [int(word[0]) for word in choices]
     
-    This can now loop over the inputs in the order of the user's choice. Nuts.
+This can now loop over the inputs in the order of the user's choice. Nuts.
     
-    Of course, inputs are obvious -- but what about iframes? Anything but.
+Of course, inputs are obvious -- but what about iframes? Anything but.
     
-    There are also cases in which you could interactively and fuzzily choose html nodes at will by the text they contain.
+There are also cases in which you could interactively and fuzzily choose html nodes at will by the text they contain.
     
     >>> login_routine_targets = fzf.prompt([element.text for element in driver.find_elements(By.XPATH, '//')], '--multi')
     
@@ -40,9 +40,9 @@ But isn't it better to always expect one type?
     >>> for target in login_routine_targets:
     >>>     login_nodes.append(driver.find_element(By.CSS_SELECTOR, f'input[text*={target}]'))
     
-    Of course, we should make these steps repeatable with functions.
+Of course, we should make these steps repeatable with functions.
     
-    But in any case, we can now implement fzf in refining vague selenium probes. Absolutely nuts.
+But in any case, we can now implement fzf in refining vague selenium probes. Absolutely nuts.
 
 
 
