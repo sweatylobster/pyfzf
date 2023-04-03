@@ -1,3 +1,16 @@
+Why a fork?
+====
+
+June Gunn calls `fzf` a Unix filter; it's text in, text out. But it's also an interactive selector with fuzzy searching. For interactive python usage, I need Nagarjuna Kumar's pyfzf to return python objects instead of strings. I don't want to create dictionaries prior to feeding them into fzf -- I just want the object I chose back. :)
+So I've added a dict in the prompt function. Really simple.
+
+Things I want to add:
+1. `%fzf` magic for ipython users.
+2. Don't wrap the object in a list unless I'm using --multi and the selection's >=2.
+3. --select-1 is default so I don't have the illusion of making a choice.
+
+
+
 pyfzf
 =====
 
